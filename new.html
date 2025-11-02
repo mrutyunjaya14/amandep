@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aman Deep — Portfolio</title>
+  <style>
+    /* ---------- Basic ---------- */
+    :root{
+      --bg: #f7f9fb;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --accent: #0b74d1;
+      --accent-2: #0a66c2;
+      --shadow: rgba(15, 23, 42, 0.08);
+      --radius: 12px;
+      --maxw: 1100px;
+      --container-padding: 24px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#0f172a;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--accent); text-decoration:none;}
+    img{max-width:100%; display:block; border-radius:8px;}
+
+    /* ---------- Header ---------- */
+    header{
+      backdrop-filter: blur(6px);
+      position:fixed;
+      left:0;right:0;top:0;
+      height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 24px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: 0 6px 18px var(--shadow);
+      z-index:1000;
+    }
+    .brand {display:flex; align-items:center; gap:12px;}
+    .logo {
+      width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;
+    }
+    nav a{margin-left:18px;color:#0f172a;font-weight:600;font-size:14px}
+    nav a:hover{color:var(--accent)}
+
+    /* ---------- Layout ---------- */
+    main{padding-top:96px; display:flex; justify-content:center;}
+    .wrap{width:100%; max-width:var(--maxw); padding: 28px var(--container-padding);}
+
+    /* ---------- Hero ---------- */
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.95) 100%);
+      border-radius: var(--radius);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 220px 1fr;
+      gap:20px;
+      align-items:center;
+      box-shadow: 0 8px 30px var(--shadow);
+    }
+    .pf-pic{
+      width:200px; height:200px; border-radius:14px; overflow:hidden; border: 6px solid white; box-shadow: 0 6px 20px rgba(10, 37, 99, 0.06);
+    }
+    .hero h1{font-size:26px;margin:0 0 8px 0}
+    .hero h2{font-size:16px;margin:0;color:var(--muted);font-weight:600}
+    .hero .cta{margin-top:14px}
+    .btn{
+      display:inline-block;padding:10px 16px;border-radius:10px;background:var(--accent);color:white;font-weight:600;
+      box-shadow: 0 6px 18px rgba(11,116,209,0.14);
+      border:none;cursor:pointer;
+    }
+    .btn.secondary{background:transparent;color:var(--accent); border:1.5px solid rgba(11,116,209,0.12)}
+
+    /* ---------- Sections ---------- */
+    section{margin-top:32px}
+    h2.section-title{font-size:20px;margin-bottom:12px;color:#07203a}
+
+    /* ---------- Featured project ---------- */
+    .project-feature{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:20px;
+      background:var(--card);
+      padding:20px;
+      border-radius:12px;
+      box-shadow: 0 10px 30px var(--shadow);
+    }
+    .project-gallery{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    .project-desc p{color:var(--muted); line-height:1.6}
+    .tag{display:inline-block;background:#eef6ff;color:var(--accent);padding:6px 10px;border-radius:999px;font-weight:600;margin-right:8px;font-size:13px}
+
+    /* ---------- Project grid ---------- */
+    .grid{display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:18px;}
+    .card{background:var(--card); padding:16px; border-radius:12px; box-shadow: 0 8px 22px var(--shadow); min-height:160px}
+    .card h3{margin:10px 0 8px 0}
+    .card p{color:var(--muted); font-size:14px; line-height:1.5}
+
+    /* ---------- Tableau embed ---------- */
+    .tableau-frame{width:100%; border-radius:10px; overflow:hidden; height:420px; border:1px solid #e6eefc}
+    .tableau-frame iframe{width:100%; height:100%; border:0; display:block}
+
+    /* ---------- Contact ---------- */
+    .contact {display:flex; gap:20px; justify-content:center; align-items:center; flex-wrap:wrap;text-align:center}
+    .contact .card{max-width:520px}
+
+    /* ---------- Footer ---------- */
+    footer{margin-top:30px;padding:30px 0;color:var(--muted);text-align:center}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:980px){
+      .project-feature{grid-template-columns:1fr; padding:16px}
+      .hero{grid-template-columns:140px 1fr}
+      .pf-pic{width:140px;height:140px}
+      header{padding:10px 14px}
+    }
+    @media (max-width:520px){
+      nav a{display:none}
+      .hero{padding:14px}
+      .project-feature{padding:12px}
+      .tableau-frame{height:300px}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="logo">AD</div>
+    <div>
+      <div style="font-weight:800">Aman Deep</div>
+      <div style="font-size:12px;color:var(--muted);margin-top:3px">Data Science & IoT Enthusiast</div>
+    </div>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#featured">Featured</a>
+    <a href="#projects">Projects</a>
+    <a href="#dashboards">Dashboards</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="pf-pic">
+        <!-- Put your green-background portrait here in same folder -->
+        <img src="newpic.jpeg" alt="Aman Deep Photo" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div>
+        <h1>Hi — I'm <span style="color:var(--accent)">Aman Deep</span></h1>
+        <h2>Analyst • Researcher • IoT & Embedded Systems</h2>
+        <div style="margin-top:12px">
+          <span class="tag">R • Tableau • Python</span>
+          <span class="tag">Arduino • IoT • ML</span>
+        </div>
+        <div class="cta">
+          <button class="btn" onclick="document.getElementById('featured').scrollIntoView({behavior:'smooth'})">Featured Project</button>
+          <a class="btn secondary" href="#projects" style="margin-left:10px">Other Work</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section id="featured">
+      <h2 class="section-title">Featured Project — Firefighter Robot Car (IoT)</h2>
+
+      <div class="project-feature">
+        <div>
+          <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px">
+            <div style="font-weight:800;font-size:18px">Firefighter Robot Car</div>
+            <div style="font-size:13px;color:var(--muted)">Arduino UNO • Sensors • Autonomous navigation</div>
+          </div>
+
+          <div class="project-desc">
+            <p>
+              Designed and implemented a firefighter robot car using Arduino UNO, temperature & flame sensors, motor drivers and custom control logic.
+              The robot detects fire sources, navigates small indoor obstacle courses, and activates extinguishing mechanism. I handled hardware integration,
+              sensor calibration, and end-to-end firmware coding (C/C++). This project demonstrates embedded systems design, real-time control and IoT telemetry.
+            </p>
+
+            <ul style="text-align:left;color:var(--muted);margin-top:12px;line-height:1.6">
+              <li>Microcontroller: Arduino UNO (firmware in Arduino C)</li>
+              <li>Peripherals: Flame sensor, DHT/temperature, ultrasonic sensor, L298N motor driver</li>
+              <li>Features: Autonomous fire-detection, basic path planning, remote telemetric logs</li>
+            </ul>
+
+            <div style="margin-top:14px;">
+              <a class="btn" href="#contact">Contact to Collaborate</a>
+              <a class="btn secondary" style="margin-left:10px" href="#projects">See Data Projects</a>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="project-gallery">
+            <!-- Put your two IoT images here -->
+            <div style="border-radius:10px;overflow:hidden;background:#fbfdff;padding:6px">
+              <img src="iot 1.jpeg" alt="IoT Photo 1" style="height:220px;object-fit:cover;border-radius:6px">
+            </div>
+            <div style="border-radius:10px;overflow:hidden;background:#fbfdff;padding:6px">
+              <img src="iot 2.jpeg" alt="IoT Photo 2" style="height:220px;object-fit:cover;border-radius:6px">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section id="projects">
+      <h2 class="section-title">Selected Data Science Projects</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>Netflix Dataset Analytics</h3>
+          <p>Performed descriptive and predictive analytics on Netflix content. Built visualizations and predictive models using R and Tableau to study trends,
+            genre performance, and user-rating patterns. Implemented SVM/Random Forest regression for score prediction and recommendation insights.</p>
+        </div>
+
+        <div class="card">
+          <h3>Child Depression Prediction (IEEE)</h3>
+          <p>Research published at IEEE International Conference 2025 — focus on predicting child depression using supervised learning models, feature engineering,
+             and ethical data handling. Models evaluated using precision, recall and F1 metrics; results presented with interpretability visualizations.</p>
+        </div>
+
+        <div class="card">
+          <h3>Credit Card Fraud Detection</h3>
+          <p>Created classification pipelines with Random Forest and SVM. Applied resampling and feature scaling to handle class imbalance and improved detection rates using ensemble methods.</p>
+        </div>
+
+        <div class="card">
+          <h3>Tableau Dashboards & Visual Storytelling</h3>
+          <p>Interactive dashboards for Netflix, user behavior, and research visualizations. Emphasis on clean story points, drill-downs and actionable insights for stakeholders.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TABLEAU EMBED -->
+    <section id="dashboards">
+      <h2 class="section-title">Interactive Dashboards (Tableau Public)</h2>
+      <div class="tableau-frame">
+        <!-- Embeds Tableau Public profile (live) -->
+        <img src="tablue.png" alt="tabluephoto" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div style="margin-top:10px;text-align:center">
+        <a class="btn" href="https://public.tableau.com/app/profile/aman.deep4762/vizzes" target="_blank">Open in Tableau Public</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+
+      <div class="contact">
+        <div class="card" style="text-align:left">
+          <h3>Get in touch</h3>
+          <p style="color:var(--muted)">Email me for collaborations, presentations or research discussions.</p>
+          <p style="margin-top:12px"><strong>Email:</strong> <a href="mailto:amandeepdk2003@gmail.com">amandeepdk2003@gmail.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aman-deep-82684429b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">Aman Deep</a></p>
+        </div>
+
+     
+
+    <footer>
+      © 2025 Aman Deep — Designed for presentations & interviews.
+    </footer>
+
+  </div>
+</main>
+
+<script>
+  // Smooth scroll fallback for older browsers
+  (function(){
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        const id = a.getAttribute('href').slice(1);
+        if(!id) return;
+        const el = document.getElementById(id);
+        if(el){
+          e.preventDefault();
+          el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+  })();
+
+  // Simple download of current HTML (for backup to present)
+  function downloadHTML(){
+    const blob = new Blob([document.documentElement.outerHTML], {type:'text/html'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'portfolio_backup.html';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+</script>
+
+</body>
+</html>
