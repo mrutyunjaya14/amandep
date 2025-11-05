@@ -12,6 +12,7 @@
       --muted: #6b7280;
       --accent: #0b74d1;
       --accent-2: #0a66c2;
+      --accent-3: #07a56b;
       --shadow: rgba(15, 23, 42, 0.08);
       --radius: 12px;
       --maxw: 1100px;
@@ -103,6 +104,92 @@
     .card h3{margin:10px 0 8px 0}
     .card p{color:var(--muted); font-size:14px; line-height:1.5}
 
+    /* ====== Skills (Card Style) ====== */
+.skills-header{
+  text-align:center; margin-bottom:18px;
+}
+.skills-title{
+  font-size:32px; line-height:1.2; margin:0;
+}
+.skills-title .accent{color:#6a49ff}
+.skills-sub{
+  color:var(--muted); margin-top:8px; font-size:16px;
+}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:18px;
+}
+
+.skill-card{
+  background: linear-gradient(180deg,#ffffff, #fcfdff);
+  border:1px solid #eef3ff;
+  border-radius:16px;
+  padding:18px;
+  box-shadow: 0 10px 24px var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.skill-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgba(15,23,42,.12);
+  border-color:#e4edff;
+}
+
+.icon-box{
+  width:56px;height:56px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:26px;font-weight:800;
+  box-shadow: 0 8px 22px rgba(2,6,23,.15);
+  margin-bottom:12px;
+}
+.icon-code{background: linear-gradient(135deg,#0b74d1,#6a49ff);}
+.icon-ml{background: linear-gradient(135deg,#b36bff,#ff78c8);}
+.icon-viz{background: linear-gradient(135deg,#06b67f,#24c08f);}
+.icon-tools{background: linear-gradient(135deg,#ff7b5b,#ff9a3c);}
+
+.skill-card h3{margin:4px 0 10px 0; font-size:20px;}
+.pills{display:flex;flex-wrap:wrap; gap:8px;}
+.pill{
+  background:#eef1f6; color:#0f172a; font-weight:600;
+  padding:8px 12px; border-radius:999px; font-size:13px;
+  border:1px solid #e7ecf5;
+}
+.fam-icon svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+.fam-icon:hover {
+  border-color: #c6bfff;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+
+/* familiar row */
+.familiar-wrap{margin-top:18px; text-align:center;}
+.fam-title{color:var(--muted); margin-bottom:10px;}
+.fam-row{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.fam-icon{
+  width:46px;height:46px;border-radius:999px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;color:#6a49ff;background:#fff;
+  border:2px solid #e9e5ff;
+  box-shadow: 0 6px 16px rgba(2,6,23,.06);
+  font-size:18px;
+}
+
+/* responsive */
+@media (max-width:1100px){
+  .skills-grid{grid-template-columns: repeat(2, 1fr);}
+  .skills-title{font-size:28px}
+}
+@media (max-width:560px){
+  .skills-grid{grid-template-columns: 1fr;}
+  .skills-title{font-size:24px}
+}
+
     /* ---------- Tableau embed ---------- */
     .tableau-frame{width:100%; border-radius:10px; overflow:hidden; height:420px; border:1px solid #e6eefc}
     .tableau-frame iframe{width:100%; height:100%; border:0; display:block}
@@ -120,6 +207,8 @@
       .hero{grid-template-columns:140px 1fr}
       .pf-pic{width:140px;height:140px}
       header{padding:10px 14px}
+      .skills-outer{grid-template-columns:1fr; gap:14px}
+      .skills-right{order:2}
     }
     @media (max-width:520px){
       nav a{display:none}
@@ -143,6 +232,7 @@
     <a href="#about">About</a>
     <a href="#featured">Featured</a>
     <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
     <a href="#dashboards">Dashboards</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -246,6 +336,139 @@
       </div>
     </section>
 
+   <!-- SKILLS (Card Style like screenshot) -->
+<section id="skills" aria-labelledby="skills-title">
+  <div class="skills-header">
+    <h2 class="skills-title" id="skills-title">Technical <span class="accent">Skills</span></h2>
+    <div class="skills-sub">A comprehensive toolkit for data science and machine learning projects</div>
+  </div>
+
+  <div class="skills-grid">
+    <!-- Programming -->
+    <div class="skill-card">
+      <div class="icon-box icon-code">{"</>"}</div>
+      <h3>Programming</h3>
+      <div class="pills">
+        <span class="pill">Python</span>
+        <span class="pill">R</span>
+        <span class="pill">SQL</span>
+        <span class="pill">C/C++ (Arduino)</span>
+      </div>
+    </div>
+
+    <!-- Machine Learning -->
+    <div class="skill-card">
+      <div class="icon-box icon-ml">🧠</div>
+      <h3>Machine Learning</h3>
+      <div class="pills">
+        <span class="pill">Scikit-learn</span>
+        <span class="pill">TensorFlow (basics)</span>
+        <span class="pill">XGBoost</span>
+        <span class="pill">SVM • RandomForest</span>
+      </div>
+    </div>
+
+    <!-- Data Visualization -->
+    <div class="skill-card">
+      <div class="icon-box icon-viz">📊</div>
+      <h3>Data Visualization</h3>
+      <div class="pills">
+        <span class="pill">Tableau</span>
+        <span class="pill">Power BI</span>
+        <span class="pill">Matplotlib</span>
+        <span class="pill">Seaborn</span>
+      </div>
+    </div>
+
+    <!-- Tools & Platforms -->
+    <div class="skill-card">
+      <div class="icon-box icon-tools">⚙️</div>
+      <h3>Tools &amp; Platforms</h3>
+      <div class="pills">
+        <span class="pill">Git</span>
+        <span class="pill">Docker</span>
+        <span class="pill">AWS (basics)</span>
+        <span class="pill">Spark (basics)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Also familiar with -->
+<div class="familiar-wrap">
+  <div class="fam-title">Also familiar with:</div>
+  <div class="fam-row">
+    
+    <!-- Hadoop -->
+    <div class="fam-icon" title="Hadoop">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2C7.58 2 4 5.58 4 10c0 3.87 3.13 7.06 7 7.93V22l3-2h2l-2-2.07c3.87-.87 7-4.06 7-7.93 0-4.42-3.58-8-8-8Z" fill="#ffcc00" stroke="#000" stroke-width="0.5"/>
+      </svg>
+    </div>
+
+    <!-- Database (SQL/NoSQL) -->
+    <div class="fam-icon" title="Databases (SQL/NoSQL)">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <ellipse cx="12" cy="5" rx="8" ry="3" fill="#4f46e5"/>
+        <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5" stroke="#4f46e5" stroke-width="1.4"/>
+        <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" stroke="#4f46e5" stroke-width="1.4"/>
+      </svg>
+    </div>
+
+    <!-- Kubernetes -->
+    <div class="fam-icon" title="Kubernetes">
+      <svg viewBox="0 0 64 64" width="24" height="24">
+        <path fill="#326ce5" d="M32 4l26 15v26L32 60 6 45V19z"/>
+        <path fill="#fff" d="M32 12l20 11v18L32 52 12 41V23z"/>
+      </svg>
+    </div>
+
+    <!-- Airflow -->
+    <div class="fam-icon" title="Apache Airflow">
+      <svg viewBox="0 0 64 64" width="24" height="24">
+        <path fill="#017cee" d="M32 32L6 6l6 20z"/>
+        <path fill="#00a59b" d="M32 32L6 58l20-6z"/>
+        <path fill="#ff4b4b" d="M32 32l26-26-6 20z"/>
+        <path fill="#ffb400" d="M32 32l26 26-20-6z"/>
+      </svg>
+    </div>
+
+    <!-- Linux -->
+    <div class="fam-icon" title="Linux">
+      <svg viewBox="0 0 64 64" width="24" height="24">
+        <ellipse cx="32" cy="40" rx="14" ry="18" fill="#000"/>
+        <ellipse cx="28" cy="28" rx="3" ry="4" fill="#fff"/>
+        <ellipse cx="36" cy="28" rx="3" ry="4" fill="#fff"/>
+      </svg>
+    </div>
+
+    <!-- DevOps / CLI -->
+    <div class="fam-icon" title="CLI / DevOps">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M9 9l-5 3 5 3M14 17h6" stroke="#6a49ff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- MQTT / IoT -->
+    <div class="fam-icon" title="MQTT / IoT">
+      <svg viewBox="0 0 64 64" width="24" height="24">
+        <circle cx="32" cy="32" r="10" fill="#6fe9b0"/>
+        <path d="M32 4v10M32 50v10M4 32h10M50 32h10M12 12l8 8M44 44l8 8M12 52l8-8M44 20l8-8" stroke="#06b67f" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <!-- BI Tools -->
+    <div class="fam-icon" title="Business Intelligence Tools">
+      <svg viewBox="0 0 64 64" width="24" height="24">
+        <rect x="10" y="36" width="8" height="18" rx="2" fill="#6a49ff"/>
+        <rect x="28" y="26" width="8" height="28" rx="2" fill="#6a49ff"/>
+        <rect x="46" y="14" width="8" height="40" rx="2" fill="#6a49ff"/>
+      </svg>
+    </div>
+  </div>
+</div>
+</section>
+
+
     <!-- TABLEAU EMBED -->
     <section id="dashboards">
       <h2 class="section-title">Interactive Dashboards (Tableau Public)</h2>
@@ -270,7 +493,8 @@
           <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/aman-deep-82684429b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">Aman Deep</a></p>
         </div>
 
-     
+      </div>
+    </section>
 
     <footer>
       © 2025 Aman Deep — Designed for presentations & interviews.
@@ -307,6 +531,18 @@
     a.remove();
     URL.revokeObjectURL(url);
   }
+
+  // Trigger simple "fill" animation on load for skill bars
+  window.addEventListener('load', function(){
+    // ensure bars animate in case width set inline
+    document.querySelectorAll('.skill-bar').forEach(function(bar){
+      const w = bar.style.width || getComputedStyle(bar).getPropertyValue('--target') || '0%';
+      // small timeout to let layout settle
+      setTimeout(function(){
+        bar.style.width = w;
+      }, 80);
+    });
+  });
 </script>
 
 </body>
